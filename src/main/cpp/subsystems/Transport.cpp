@@ -42,7 +42,7 @@ void Transport::Periodic(){
   }
 
   if(joyBut1 -> Get()){
-    scgT -> Set(speed);
+    scgT -> Set(curSpeed);
   }
   else scgT -> Set(0);
 }

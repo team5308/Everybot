@@ -20,11 +20,11 @@
 
 class Robot : public frc::TimedRobot {
  public:
-  static 
-  static OI m_oi;
+  //static 
+  //static OI m_oi;
 
-  static std::shared_ptr<Drive> drive;
-  static std::shared_ptr<Transport> transport;
+  //static std::shared_ptr<Drive> drive;
+  //static std::shared_ptr<Transport> transport;
 
   void RobotInit() override;
   void RobotPeriodic() override;
