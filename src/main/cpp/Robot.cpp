@@ -11,10 +11,13 @@
 
 //ExampleSubsystem Robot::m_subsystem;
 //OI Robot::m_oi;
-
+std::shared_ptr<Drive> Robot::drive;
+std::shared_ptr<Transport> Robot::transport;
 std::shared_ptr<Hatch> Robot::hatch;
 
 void Robot::RobotInit() {
+  drive.reset(new Drive());
+  transport.reset(new Transport());
   hatch.reset(new Hatch());
   m_chooser.SetDefaultOption("Default Auto", &m_defaultAuto);
   m_chooser.AddOption("My Auto", &m_myAuto);

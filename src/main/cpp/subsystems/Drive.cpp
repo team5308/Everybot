@@ -6,6 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 #include "subsystems/Drive.h"
+#include <cstdio>
 
 std::shared_ptr<frc::Joystick> Drive::joyD;
 
@@ -21,13 +22,13 @@ std::shared_ptr<frc::SpeedControllerGroup> Drive::scgD2;
 std::shared_ptr<frc::DifferentialDrive> Drive::diff;
 
 Drive::Drive() : Subsystem("ExampleSubsystem") {
-  joyD.reset(new frc::Joystick(1));
+  joyD.reset(new frc::Joystick(0));
 
-  spa1.reset(new frc::Spark(1));
-  spa2.reset(new frc::Spark(2));
+  spa1.reset(new frc::Spark(0));
+  spa2.reset(new frc::Spark(6));
 
-  spa3.reset(new frc::Spark(3));
-  spa4.reset(new frc::Spark(4));
+  spa3.reset(new frc::Spark(2));
+  spa4.reset(new frc::Spark(3));
 
   scgD1 = std::make_shared<frc::SpeedControllerGroup>(*spa1,*spa2);
   scgD2 = std::make_shared<frc::SpeedControllerGroup>(*spa3,*spa4);
@@ -60,7 +61,7 @@ if(abs(x) < 0.14){
 }
 
 void Drive::Periodic(){
-diff -> ArcadeDrive(suoqu(joyD -> GetY()), suoqu(joyD -> GetX()));
+  diff -> ArcadeDrive(suoqu(joyD -> GetY()), suoqu(joyD -> GetX()));
 }
 
 
