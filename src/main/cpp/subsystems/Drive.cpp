@@ -6,6 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 #include "subsystems/Drive.h"
+#include <cstdio>
 
 std::shared_ptr<frc::Joystick> Drive::joyD;
 
@@ -25,8 +26,6 @@ Drive::Drive() : Subsystem("ExampleSubsystem") {
 
   spa1.reset(new frc::Spark(0));
   spa2.reset(new frc::Spark(6));
-
-  // spa1->SetInverted(true);
 
   spa3.reset(new frc::Spark(2));
   spa4.reset(new frc::Spark(3));

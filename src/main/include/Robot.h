@@ -24,8 +24,8 @@ class Robot : public frc::TimedRobot {
   //static 
   //static OI m_oi;
 
-  //static std::shared_ptr<Drive> drive;
-  //static std::shared_ptr<Transport> transport;
+  static std::shared_ptr<Drive> drive;
+  static std::shared_ptr<Transport> transport;
   static std::shared_ptr<Hatch> hatch;
   static std::shared_ptr<Transport> transport;
   static std::shared_ptr<Drive> drive;

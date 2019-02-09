@@ -11,12 +11,15 @@
 
 //ExampleSubsystem Robot::m_subsystem;
 //OI Robot::m_oi;
-
+std::shared_ptr<Drive> Robot::drive;
+std::shared_ptr<Transport> Robot::transport;
 std::shared_ptr<Hatch> Robot::hatch;
 std::shared_ptr<Transport> Robot::transport;
 std::shared_ptr<Drive> Robot::drive;
 
 void Robot::RobotInit() {
+  drive.reset(new Drive());
+  transport.reset(new Transport());
   hatch.reset(new Hatch());
   transport.reset(new Transport());
   drive.reset(new Drive());
