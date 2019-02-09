@@ -27,7 +27,4 @@ class Transport : public frc::Subsystem {
   static std::shared_ptr<frc::JoystickButton> joyBut1;
 
   static std::shared_ptr<WPI_VictorSPX> vic1;
-  static std::shared_ptr<WPI_VictorSPX> vic2;
-
-  static std:: shared_ptr<frc::SpeedControllerGroup> scgT;
 };

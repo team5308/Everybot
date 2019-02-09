@@ -12,17 +12,13 @@ std::shared_ptr<frc::Joystick> Transport::joyT;
 std::shared_ptr<frc::JoystickButton> Transport::joyBut1;
 
 std::shared_ptr<WPI_VictorSPX> Transport::vic1;
-std::shared_ptr<WPI_VictorSPX> Transport::vic2;
-
-std::shared_ptr<frc::SpeedControllerGroup> Transport::scgT;
 
 Transport::Transport() : Subsystem("ExampleSubsystem") {
   joyT.reset(new frc::Joystick(0));
 
   joyBut1.reset(new frc::JoystickButton(joyT.get(), 1));
 
-  vic1.reset(new WPI_VictorSPX(0));
-  // vic2.reset(new WPI_VictorSPX(2));
+  vic1.reset(new WPI_VictorSPX(2));
   
   // scgT = std::make_shared<frc::SpeedControllerGroup>(*vic1,*vic2);
  

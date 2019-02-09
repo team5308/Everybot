@@ -10,9 +10,13 @@
 std::shared_ptr<frc::Servo> Hatch::tst;
 std::shared_ptr<frc::Joystick> Hatch::joy;
 
+std::shared_ptr<WPI_VictorSPX> Hatch::doorM; 
+
 Hatch::Hatch() : Subsystem("Hatch") {
   tst.reset(new frc::Servo(9));
   joy.reset(new frc::Joystick(0));
+
+  doorM.reset(new WPI_VictorSPX(1));
 }
 
 void Hatch::InitDefaultCommand() {
@@ -21,6 +25,7 @@ void Hatch::InitDefaultCommand() {
 
 void Hatch::Periodic()
 {
+  if(doorMode()) return;
   tst->Set(joy->GetThrottle());
   if(joy -> GetRawButton(4))
   {
@@ -33,4 +38,27 @@ void Hatch::Periodic()
     printf("Get back\n");
   }
   
+}
+
+
+bool Hatch::doorMode()
+{
+  int deg = joy->GetPOV();
+  
+  printf("POV:   %d\n", deg);
+  
+  if(deg == 0)
+  {
+    doorM -> Set(1);
+  }
+  else if(deg == 180)
+  {
+    doorM -> Set(-1);
+  }
+  else
+  {
+    doorM -> Set(0);
+  }
+  
+  return true;
 }

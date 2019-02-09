@@ -9,14 +9,19 @@
 
 #include <frc/commands/Subsystem.h>
 #include <frc/WPILib.h>
+#include <ctre/Phoenix.h>
 
 class Hatch : public frc::Subsystem {
  private:
   static std::shared_ptr<frc::Servo> tst;
   static std::shared_ptr<frc::Joystick> joy;
+
+  static std::shared_ptr<WPI_VictorSPX> doorM;
   
  public:
   Hatch();
   void InitDefaultCommand() override;
   void Periodic() override;
+  
+  bool doorMode();
 };

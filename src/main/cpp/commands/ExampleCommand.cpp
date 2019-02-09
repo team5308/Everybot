@@ -19,7 +19,7 @@ void ExampleCommand::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void ExampleCommand::Execute() {
-  Robot::drive->Periodic();
+  //Robot::drive->Periodic();
 }
 
 // Make this return true when this Command no longer needs to run execute()
