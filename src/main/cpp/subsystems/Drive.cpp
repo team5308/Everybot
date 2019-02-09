@@ -21,13 +21,15 @@ std::shared_ptr<frc::SpeedControllerGroup> Drive::scgD2;
 std::shared_ptr<frc::DifferentialDrive> Drive::diff;
 
 Drive::Drive() : Subsystem("ExampleSubsystem") {
-  joyD.reset(new frc::Joystick(1));
+  joyD.reset(new frc::Joystick(0));
 
-  spa1.reset(new frc::Spark(1));
-  spa2.reset(new frc::Spark(2));
+  spa1.reset(new frc::Spark(0));
+  spa2.reset(new frc::Spark(6));
 
-  spa3.reset(new frc::Spark(3));
-  spa4.reset(new frc::Spark(4));
+  // spa1->SetInverted(true);
+
+  spa3.reset(new frc::Spark(2));
+  spa4.reset(new frc::Spark(3));
 
   scgD1 = std::make_shared<frc::SpeedControllerGroup>(*spa1,*spa2);
   scgD2 = std::make_shared<frc::SpeedControllerGroup>(*spa3,*spa4);
@@ -60,6 +62,32 @@ if(abs(x) < 0.14){
 }
 
 void Drive::Periodic(){
+
+  // if(joyD->GetRawButton(3))
+  // {
+  //   // scgD2->Set(1);
+  //   spa1 -> Set(1);
+  //   printf("1d1d1\n");
+  // }
+  // else if(joyD->GetRawButton(4))
+  // {
+  //   spa2 ->Set(1);
+  //   printf("2de2d2d\n");
+  // }
+  // elsePP
+  // {
+  //   spa1->Set(0);
+  //   spa2->Set(0);
+  // }
+  
+
+  double ty = 1.0;
+  
+  // scgD1->Set(ty);
+  // scgD2->Set(ty);
+
+  // printf("ffrfrf\n");  
+
 diff -> ArcadeDrive(suoqu(joyD -> GetY()), suoqu(joyD -> GetX()));
 }
 

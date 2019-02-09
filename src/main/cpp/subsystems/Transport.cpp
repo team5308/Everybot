@@ -21,10 +21,10 @@ Transport::Transport() : Subsystem("ExampleSubsystem") {
 
   joyBut1.reset(new frc::JoystickButton(joyT.get(), 1));
 
-  vic1.reset(new WPI_VictorSPX(1));
-  vic2.reset(new WPI_VictorSPX(2));
+  vic1.reset(new WPI_VictorSPX(0));
+  // vic2.reset(new WPI_VictorSPX(2));
   
-  scgT = std::make_shared<frc::SpeedControllerGroup>(*vic1,*vic2);
+  // scgT = std::make_shared<frc::SpeedControllerGroup>(*vic1,*vic2);
  
 }
 
@@ -42,8 +42,8 @@ void Transport::Periodic(){
   }
 
   if(joyBut1 -> Get()){
-    scgT -> Set(curSpeed);
+    vic1 -> Set(curSpeed);
   }
-  else scgT -> Set(0);
+  else vic1 -> Set(0);
 }
 

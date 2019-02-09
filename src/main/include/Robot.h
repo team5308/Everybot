@@ -27,6 +27,8 @@ class Robot : public frc::TimedRobot {
   //static std::shared_ptr<Drive> drive;
   //static std::shared_ptr<Transport> transport;
   static std::shared_ptr<Hatch> hatch;
+  static std::shared_ptr<Transport> transport;
+  static std::shared_ptr<Drive> drive;
 
   void RobotInit() override;
   void RobotPeriodic() override;
